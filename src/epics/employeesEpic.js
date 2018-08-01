@@ -16,7 +16,7 @@ import { Observable } from "rxjs";
 const getEmployeeEpic = (action$, store) =>
     action$.ofType(LOAD_EMPLOYEE).mergeMap(action =>
         ajax.get(
-            "http://GCOTVMSW784259.nam.nsroot.net:8030/employees",{
+            "http://localhost:8030/employees",{
                 "Content-Type": "application/json"
             }
         )

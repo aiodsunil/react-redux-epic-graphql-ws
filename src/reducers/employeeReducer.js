@@ -8,11 +8,11 @@ import {
 export function loadEmployees(state = [], action) {
     switch (action.type) {
         case LOAD_EMPLOYEE_COMPLETE:
-            return  action.payload;
+            return action.payload;
         case CLEAR_EMPLOYEE:
             return [];
-        case HTTP_ERROR :
-             return  action.payload;
+        case HTTP_ERROR:
+            return action.payload;
 
         default:
             return state;

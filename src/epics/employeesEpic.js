@@ -30,5 +30,4 @@ const getEmployeeEpic = (action$, store) =>
         }));
 
 const employeesEpics = combineEpics(getEmployeeEpic);
-
 export default employeesEpics;

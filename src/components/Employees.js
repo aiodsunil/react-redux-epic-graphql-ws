@@ -5,8 +5,8 @@ import {loadEmployee,clearEmployee}  from  '../actionCreators/actionCreators';
 function Employees(props){
     return (
         <div>
-          <button type="button" onClick={props.loadEmployee}>Load ALL Employees</button>
-          <button type="button" onClick={props.clearEmployee}>Clear Employee</button>
+          <button type="button" onClick={props.onClick}>Load ALL Employees</button>
+          <button type="button" onClick={props.clear}>Clear Employee</button>
           <EmployeeList {...props}/>
         </div>
     )
@@ -14,7 +14,7 @@ function Employees(props){
     
 function EmployeeList(props){
     if(!props.employees || props.employees.length===0) return null;
-    console.log(props.employees);
+    console.log(props.employees)
     return(
         <div>
           {props.employees.map(employee =><Employee {...employee} key={employee.empid}/>)}
@@ -32,8 +32,8 @@ function mapStateToProps(state){
 }
 function  mapDispatchToProps(dispatch) {
     return {
-        loadEmployee:()=>dispatch(loadEmployee()),
-        clearEmployee:() =>dispatch(clearEmployee())
+        onClick:()=>dispatch(loadEmployee()),
+        clear:() =>dispatch(clearEmployee())
     };
 }
 

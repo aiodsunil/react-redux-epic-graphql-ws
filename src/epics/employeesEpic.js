@@ -1,8 +1,8 @@
 import {
-    LOAD_EMPLOYEE, HTTP_ERROR
+    LOAD_EMPLOYEE,HTTP_ERROR
 } from '../actions/actions';
 import {
-    loadEmp
+    loadEmployeeComplete
 } from '../actionCreators/actionCreators';
 import {
     ajax
@@ -16,11 +16,11 @@ import { Observable } from "rxjs";
 const getEmployeeEpic = (action$, store) =>
     action$.ofType(LOAD_EMPLOYEE).mergeMap(action =>
         ajax.get(
-            "http://localhost:8030/employees",{
+            "http://GCOTVMSW784259.nam.nsroot.net:8030/employees",{
                 "Content-Type": "application/json"
             }
         )
-        .map(response =>loadEmp(response.response))
+        .map(response =>loadEmployeeComplete(response.response))
         .catch(err => {
             console.log(err);
             return Observable.of({

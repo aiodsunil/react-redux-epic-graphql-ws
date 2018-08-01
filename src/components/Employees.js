@@ -1,24 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loadEmployee,clear}  from  '../actions/actions';
+import {loadEmployee,clearEmployee}  from  '../actionCreators/actionCreators';
 
 function Employees(props){
     return (
         <div>
           <button type="button" onClick={props.loadEmployee}>Load ALL Employees</button>
-          <button type="button" onClick={props.clear}>Clear</button>
+          <button type="button" onClick={props.clearEmployee}>Clear Employee</button>
           <EmployeeList {...props}/>
         </div>
     )
 }
     
 function EmployeeList(props){
-    
-    console.log(props);
     if(!props.employees || props.employees.length===0) return null;
+    console.log(props.employees);
     return(
         <div>
-          {props.employees.map(employee =><Employee {...employee} key={employee.id}/>)}
+          {props.employees.map(employee =><Employee {...employee} key={employee.empid}/>)}
         </div>
     )
 }
@@ -34,7 +33,7 @@ function mapStateToProps(state){
 function  mapDispatchToProps(dispatch) {
     return {
         loadEmployee:()=>dispatch(loadEmployee()),
-        clear:() =>dispatch(clear())
+        clearEmployee:() =>dispatch(clearEmployee())
     };
 }
 

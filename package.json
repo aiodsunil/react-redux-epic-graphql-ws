@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "react-redux-epic-graphql-ws",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
